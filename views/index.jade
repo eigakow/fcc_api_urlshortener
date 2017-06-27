@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Free Code Camp API Project - URL Shortener Microservice
+  h3 Implemented User Stories
+  ul
+    li I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+    li If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+    li When I visit that shortened URL, it will redirect me to my original link.
+  h3 Usage Example
+  ul
+    li Creating a shortened URL request:
+    code https://gray-sparrow.glitch.me/new/http://www.example.com
+    br
+    li Response
+    code { "original": "http://www.example.com", "shortened": "https://gray-sparrow.glitch.me/93u8m" }
+    br
+    li Using the shortened URL will redirect you to original url
+    code https://gray-sparrow.glitch.me/93u8m
