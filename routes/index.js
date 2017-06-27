@@ -52,7 +52,7 @@ router.get('/new/:url*', function(req, res) {
 router.get('/:short', function(req, res) {
   console.log('router.get(/:short');
   //var path = req.originalUrl.replace(req.baseUrl, "").match(/\/(.*)/)[1];
-  var path = req.headers.host + req.originalUrl;
+  var path = "https://" + req.headers.host + req.originalUrl;
   console.log(path);
 
     MongoClient.connect(url, function (err, db) {
@@ -113,7 +113,7 @@ var findDocument = function(db, short, callback) {
 function generateRandomURL(db, urldepl) {
   var id = Math.random().toString(36).substr(2, 5);
   console.log(id);
-  var fullid = urldepl + "/" + id;
+  var fullid = "https://" + urldepl + "/" + id;
   db.collection('urlshortener').findOne({shortened : fullid}, function (err, docs) {
     if (docs) {
       console.log('id exists: ');
